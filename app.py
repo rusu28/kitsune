@@ -879,6 +879,21 @@ def render_city_metrics(history: list[dict[str, Any]], info: dict[str, Any], *, 
         st.subheader("Investment Analysis")
         render_sustainability_analytics(latest, info)
 
+        st.subheader("Responsible AI and Human Decision")
+        risk_col, human_col = st.columns(2)
+        with risk_col:
+            st.warning(
+                "These costs and CO2 reductions are synthetic scenario estimates, not guaranteed real-world "
+                "savings. Kitsune exposes assumptions, ROI, budget use, and remaining constraints so the result "
+                "can be challenged instead of followed automatically."
+            )
+        with human_col:
+            st.success(
+                "Kitsune does not approve the final investment plan. A school administrator or facilities "
+                "manager must verify vendor quotes, building safety, procurement rules, regulations, maintenance "
+                "capacity, and community priorities before money is committed."
+            )
+
     chart_data = {
         "episode": [row["episode"] for row in history],
         "reward": [row["reward"] for row in history],
